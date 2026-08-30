@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourDomainGoesHere.com - Custom Website Design & Management</title>
+    <link rel="icon" type="image/x-icon" href="https://yourdomaingoeshere.com/ydgh.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonPink: '#ff33cc',
+                        neonPinkGlow: '#ff70e0',
+                        darkBg: '#090a0f',
+                        darkCard: '#13151f',
+                        darkBorder: '#232738'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #090a0f;
+            color: #f3f4f6;
+        }
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(255, 51, 204, 0.6), 0 0 20px rgba(255, 51, 204, 0.4), 0 0 30px rgba(255, 51, 204, 0.2);
+        }
+        .neon-box-glow {
+            box-shadow: 0 0 25px rgba(255, 51, 204, 0.25);
+        }
+        .neon-box-glow:hover {
+            box-shadow: 0 0 40px rgba(255, 51, 204, 0.45);
+        }
+        .bg-grid {
+            background-image: radial-gradient(rgba(255, 51, 204, 0.1) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="bg-darkBg bg-grid min-h-screen font-sans selection:bg-neonPink selection:text-white">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="flex items-center group py-2">
+                    <img src="https://yourdomaingoeshere.com/ydgh-logo2.jpg" alt="YourDomainGoesHere.com Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.src='https://i.ibb.co/Z6ZpJZT9/Gemini-Generated-Image-2bsp382bsp382bsp.jpg'">
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#how-it-works" class="hover:text-neonPink transition">How It Works</a>
+                <a href="#features" class="hover:text-neonPink transition">What You Get</a>
+                <a href="#pricing" class="hover:text-neonPink transition">Pricing & Tiers</a>
+                <a href="#faq" class="hover:text-neonPink transition">FAQ</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="tel:9713737377" class="hidden lg:inline-block text-sm font-semibold text-gray-300 hover:text-neonPink transition">
+                    📞 (971) 373-7377
+                </a>
+                <a href="#pricing" class="bg-neonPink text-white px-5 py-2.5 rounded-xl font-semibold text-sm neon-box-glow hover:bg-pink-600 transition duration-300">Start for $99/mo</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section class="relative overflow-hidden pt-20 pb-28 lg:pt-32 lg:pb-36">
+            <div class="absolute inset-0 bg-gradient-to-b from-neonPink/10 via-transparent to-transparent pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 bg-darkCard border border-darkBorder px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-neonPink mb-6 neon-box-glow">
+                    <span class="flex h-2 w-2 rounded-full bg-neonPink animate-ping"></span>
+                    Custom Website Design & Management
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6">
+                    We’ll build your new website free.<br>
+                    <span class="text-neonPink neon-glow">You pay $99/month to keep it running.</span>
+                </h1>
+                <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-400 mb-10">
+                    A rebuild of your current site or a new one from scratch — website design included with no build fee. Start your subscription upfront to begin, and one flat monthly price covers hosting, weekly updates, free backups, and ongoing care.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#pricing" class="w-full sm:w-auto bg-neonPink text-white text-lg font-bold px-8 py-4 rounded-xl neon-box-glow hover:bg-pink-600 transition duration-300 text-center">
+                        Start for $99/mo
+                    </a>
+                    <a href="tel:9713737377" class="w-full sm:w-auto bg-darkCard border border-darkBorder text-gray-300 text-lg font-semibold px-8 py-4 rounded-xl hover:border-neonPink transition duration-300 text-center">
+                        Call (971) 373-7377
+                    </a>
+                </div>
+
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center border-t border-darkBorder pt-12">
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">$0</div>
+                        <div class="text-sm text-gray-400">Website Build Fee</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">Custom</div>
+                        <div class="text-sm text-gray-400">Website Design Included</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">Weekly</div>
+                        <div class="text-sm text-gray-400">Updates Included</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-neonPink neon-glow mb-1">No Lock-in</div>
+                        <div class="text-sm text-gray-400">Month-to-Month After 3 Mos</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-24 bg-darkCard/50 border-y border-darkBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-semibold text-neonPink uppercase tracking-widest mb-3">The Whole Deal</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">What you get for your monthly plan</h3>
+                    <p class="text-gray-400 mt-4">One price, everything a business website actually needs. No add-ons, no surprise invoices.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl hover:border-neonPink transition duration-300">
+                        <div class="w-14 h-14 bg-neonPink/10 text-neonPink rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            🌐
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Website design included</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Rebuild of your current site or a brand new one. Custom built to fit your goals and get you results.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl hover:border-neonPink transition duration-300">
+                        <div class="w-14 h-14 bg-neonPink/10 text-neonPink rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            🔄
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Weekly updates</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            New photos, text changes, schedules, or new service pages. Send it over and it gets handled — no per-change invoices.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl hover:border-neonPink transition duration-300">
+                        <div class="w-14 h-14 bg-neonPink/10 text-neonPink rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            ⚡
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Hosting handled</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Fast, managed hosting is part of your plan. No separate hosting bill, no login you have to remember.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl hover:border-neonPink transition duration-300">
+                        <div class="w-14 h-14 bg-neonPink/10 text-neonPink rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            🛠️
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Updates & upkeep</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Software, plugins, and forms get checked and updated continuously so your site keeps working smoothly.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl hover:border-neonPink transition duration-300">
+                        <div class="w-14 h-14 bg-neonPink/10 text-neonPink rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            🛡️
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Free backups & security</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Free backups and security monitoring. Any necessary adjustments or fixes are handled proactively behind the scenes before you even notice.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl hover:border-neonPink transition duration-300">
+                        <div class="w-14 h-14 bg-neonPink/10 text-neonPink rounded-xl flex items-center justify-center text-2xl font-bold mb-6">
+                            👀
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Staging — you approve first</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Every build and every change goes on a private staging link. Nothing goes live until you say go.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center bg-darkCard border border-darkBorder p-6 rounded-2xl max-w-3xl mx-auto">
+                    <p class="text-gray-300 font-medium">
+                        ✨ You work directly with your designer — no account managers. Month-to-month after the first 3 months. You own your domain, content, and site files.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold text-neonPink uppercase tracking-widest mb-3">Simple Process</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">How it works</h3>
+                <p class="text-gray-400 mt-4">Three steps. You spend about an hour total.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl relative">
+                    <div class="text-neonPink text-4xl font-extrabold mb-4 neon-glow">01</div>
+                    <h4 class="text-xl font-bold text-white mb-3">Start the plan</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Start your subscription upfront and tell me about your business — what you want customers to do, and what you need from your site. No pitch deck, no pressure.
+                    </p>
+                </div>
+
+                <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl relative">
+                    <div class="text-neonPink text-4xl font-extrabold mb-4 neon-glow">02</div>
+                    <h4 class="text-xl font-bold text-white mb-3">I build it — you review it</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        I write the pages, lay out the design, and put it on a private staging link. You look it over and tell me what to change.
+                    </p>
+                </div>
+
+                <div class="bg-darkCard border border-darkBorder p-8 rounded-2xl relative">
+                    <div class="text-neonPink text-4xl font-extrabold mb-4 neon-glow">03</div>
+                    <h4 class="text-xl font-bold text-white mb-3">Go live, then I maintain it</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Once you approve, it launches. From there you just text or email me whatever needs changing.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-24 bg-darkCard/50 border-t border-darkBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-semibold text-neonPink uppercase tracking-widest mb-3">Straight pricing, no games</h2>
+                    <h3 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Choose your website care plan</h3>
+                    <p class="text-gray-400">
+                        Your custom website design is included at no build cost when you start your subscription upfront.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto mb-16">
+                    <!-- Tier 1: Standard -->
+                    <div class="bg-darkCard border-2 border-neonPink p-8 rounded-3xl neon-box-glow flex flex-col justify-between relative">
+                        <div>
+                            <div class="absolute -top-3 right-6 bg-neonPink text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                                Most Popular
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-2">Standard Plan</h4>
+                            <p class="text-gray-400 text-sm mb-6">Covers most standard websites. Roughly 1 hour of updates a week (flexible case-by-case).</p>
+                            <div class="flex items-baseline gap-2 mb-6">
+                                <span class="text-gray-400 text-lg line-through">$249</span>
+                                <span class="text-4xl sm:text-5xl font-extrabold text-white">$99</span>
+                                <span class="text-gray-400 text-sm">/month</span>
+                            </div>
+                            <div class="space-y-3 text-sm text-gray-300 mb-8 border-t border-darkBorder pt-6">
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Custom Website Design Included</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Managed Hosting Included</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Weekly Updates & Content Edits</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Free Backups & Security Monitoring</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Staging Site for Approvals</span></div>
+                            </div>
+                        </div>
+                        <a href="#contact-form" onclick="selectPlan('Standard ($99/mo)')" class="w-full bg-neonPink text-white font-bold py-3.5 rounded-xl neon-box-glow hover:bg-pink-600 transition text-center block">
+                            Start Standard ($99/mo)
+                        </a>
+                    </div>
+
+                    <!-- Tier 2: Advanced -->
+                    <div class="bg-darkCard border border-darkBorder p-8 rounded-3xl hover:border-neonPink transition flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Advanced Plan</h4>
+                            <p class="text-gray-400 text-sm mb-6">Covers advanced sites, with significantly more changes (roughly 5 hours a week or more).</p>
+                            <div class="flex items-baseline gap-2 mb-6">
+                                <span class="text-gray-400 text-lg line-through">$499</span>
+                                <span class="text-4xl sm:text-5xl font-extrabold text-white">$249</span>
+                                <span class="text-gray-400 text-sm">/month</span>
+                            </div>
+                            <div class="space-y-3 text-sm text-gray-300 mb-8 border-t border-darkBorder pt-6">
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Advanced Custom Website Design</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Priority Managed Hosting</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Higher Volume Changes (~5 hrs/wk)</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Free Backups & Security Monitoring</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Staging Site & Priority Support</span></div>
+                            </div>
+                        </div>
+                        <a href="#contact-form" onclick="selectPlan('Advanced ($249/mo)')" class="w-full bg-darkCard border border-darkBorder text-white font-bold py-3.5 rounded-xl hover:border-neonPink transition text-center block">
+                            Start Advanced ($249/mo)
+                        </a>
+                    </div>
+
+                    <!-- Tier 3: Enterprise -->
+                    <div class="bg-darkCard border border-darkBorder p-8 rounded-3xl hover:border-neonPink transition flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Enterprise Plan</h4>
+                            <p class="text-gray-400 text-sm mb-6">Constant updates up to 10 hours a week or more, handled on a case-by-case basis.</p>
+                            <div class="flex items-baseline gap-2 mb-6">
+                                <span class="text-4xl sm:text-5xl font-extrabold text-white">$999</span>
+                                <span class="text-gray-400 text-sm">/month</span>
+                            </div>
+                            <div class="space-y-3 text-sm text-gray-300 mb-8 border-t border-darkBorder pt-6">
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Enterprise-Grade Custom Site</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Dedicated High-Speed Infrastructure</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Constant Updates (10+ hrs/wk)</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Immediate Priority Concierge</span></div>
+                                <div class="flex items-center space-x-2"><span class="text-neonPink font-bold">✓</span> <span>Custom Integrations & Strategy</span></div>
+                            </div>
+                        </div>
+                        <a href="#contact-form" onclick="selectPlan('Enterprise ($999/mo)')" class="w-full bg-darkCard border border-darkBorder text-white font-bold py-3.5 rounded-xl hover:border-neonPink transition text-center block">
+                            Start Enterprise ($999/mo)
+                        </a>
+                    </div>
+                </div>
+
+                <div id="contact-form" class="max-w-2xl mx-auto bg-darkCard border border-darkBorder p-8 sm:p-12 rounded-3xl">
+                    <div class="text-center mb-8">
+                        <h4 class="text-2xl font-bold text-white mb-2">Get Started Today</h4>
+                        <p class="text-gray-400 text-sm" id="selectedPlanText">Selected Plan: Standard ($99/mo)</p>
+                    </div>
+
+                    <form onsubmit="handleClaim(event)" class="space-y-4">
+                        <input type="hidden" id="chosenPlanInput" value="Standard ($99/mo)">
+                        <input type="text" id="businessName" placeholder="Your Business Name" required
+                            class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink transition">
+                        <input type="text" id="ownerName" placeholder="Your Name" required
+                            class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink transition">
+                        <input type="email" id="email" placeholder="Your Business Email" required
+                            class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink transition">
+                        <input type="tel" id="phone" placeholder="Your Phone Number" required
+                            class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink transition">
+                        <button type="submit" class="w-full bg-neonPink text-white font-bold py-4 rounded-xl neon-box-glow hover:bg-pink-600 transition duration-300">
+                            Start Plan (Paid Upfront)
+                        </button>
+                    </form>
+                    <p id="successMessage" class="hidden mt-4 text-green-400 font-semibold text-center"></p>
+                </div>
+
+                <div class="mt-8 text-center text-xs text-gray-400 max-w-xl mx-auto">
+                    Subscription starts upfront. 3-month minimum, then month-to-month. Cancel any time after that with 30 days notice — you keep your domain, content, and files.
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-gray-400 text-sm">Rather just talk it through?</p>
+                    <a href="tel:9713737377" class="text-neonPink font-bold text-lg hover:underline mt-1 inline-block">
+                        (971) 373-7377
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-semibold text-neonPink uppercase tracking-widest mb-3">Got Questions?</h2>
+                <h3 class="text-3xl font-bold text-white">Questions people actually ask</h3>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-darkCard border border-darkBorder p-6 rounded-xl">
+                    <h4 class="text-lg font-bold text-white mb-2">What does the website itself cost?</h4>
+                    <p class="text-gray-400 text-sm">Nothing for the build! The custom website design is completely free when you start your subscription upfront.</p>
+                </div>
+
+                <div class="bg-darkCard border border-darkBorder p-6 rounded-xl">
+                    <h4 class="text-lg font-bold text-white mb-2">What do the monthly plans cover?</h4>
+                    <p class="text-gray-400 text-sm">They cover high-speed managed hosting, security monitoring, free backups, software updates, and weekly content updates tailored to your selected tier.</p>
+                </div>
+
+                <div class="bg-darkCard border border-darkBorder p-6 rounded-xl">
+                    <h4 class="text-lg font-bold text-white mb-2">Am I locked into a contract?</h4>
+                    <p class="text-gray-400 text-sm">There is a 3-month minimum to cover initial setup and launch, and after that it is strictly month-to-month.</p>
+                </div>
+
+                <div class="bg-darkCard border border-darkBorder p-6 rounded-xl">
+                    <h4 class="text-lg font-bold text-white mb-2">What happens to my site if I cancel?</h4>
+                    <p class="text-gray-400 text-sm">You always own your domain, content, and site files. If you ever decide to leave, you take everything with you.</p>
+                </div>
+
+                <div class="bg-darkCard border border-darkBorder p-6 rounded-xl">
+                    <h4 class="text-lg font-bold text-white mb-2">How long does the build take?</h4>
+                    <p class="text-gray-400 text-sm">Typically around 1 to 2 weeks from our initial chat to your private staging link review.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-400 mb-2">Still not sure?</p>
+                <a href="tel:9713737377" class="text-neonPink font-bold text-xl hover:underline">
+                    Call (971) 373-7377 and ask. No pitch.
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-darkBg border-t border-darkBorder py-12 text-center text-sm text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="text-white font-bold">YourDomainGoesHere.com</span>
+                <span>&copy; 2026 All Rights Reserved.</span>
+            </div>
+            <div class="text-gray-400">
+                Direct Line: <a href="tel:9713737377" class="text-neonPink font-semibold hover:underline">(971) 373-7377</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function selectPlan(planName) {
+            document.getElementById('chosenPlanInput').value = planName;
+            document.getElementById('selectedPlanText').textContent = 'Selected Plan: ' + planName;
+        }
+
+        function handleClaim(e) {
+            e.preventDefault();
+            const biz = document.getElementById('businessName').value;
+            const name = document.getElementById('ownerName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const plan = document.getElementById('chosenPlanInput').value;
+
+            const msg = document.getElementById('successMessage');
+            msg.textContent = `Thanks ${name}! We have received your request for ${biz} on the ${plan} plan. We will call you shortly at ${phone} to get started.`;
+            msg.classList.remove('hidden');
+
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
