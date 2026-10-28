@@ -99,7 +99,7 @@
             </nav>
             <div class="flex items-center space-x-4">
                 
-                <a href="#pricing" class="bg-neonPink text-white px-5 py-2.5 rounded-xl font-semibold text-sm neon-box-glow hover:bg-pink-600 transition duration-300">Start for $99/mo</a>
+                <a href="#contact-form" class="bg-neonPink text-white px-5 py-2.5 rounded-xl font-semibold text-sm neon-box-glow hover:bg-pink-600 transition duration-300">Start for $99/mo</a>
             </div>
         </div>
     </header>
@@ -120,7 +120,7 @@
                     We design, host, and manage your website, including one standard domain and one email address. You own your domain. We handle the details, so you can enjoy what matters.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#pricing" class="w-full sm:w-auto bg-neonPink text-white text-lg font-bold px-8 py-4 rounded-xl neon-box-glow hover:bg-pink-600 transition duration-300 text-center">
+                    <a href="#contact-form" class="w-full sm:w-auto bg-neonPink text-white text-lg font-bold px-8 py-4 rounded-xl neon-box-glow hover:bg-pink-600 transition duration-300 text-center">
                         Start for $99/mo
                     </a>
                     
@@ -245,7 +245,7 @@
                                 <input type="text" id="desiredDomain" name="domainSearch" required oninput="resetDomainSelection()" placeholder="youridea.com" autocomplete="off" spellcheck="false" class="flex-1 min-w-0 bg-darkCard border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink">
                                 <button type="button" id="checkDomainButton" onclick="checkDomainAvailability()" class="bg-darkCard border border-neonPink text-white font-semibold px-5 py-3 rounded-xl hover:bg-neonPink transition">Check availability</button>
                             </div>
-                            <p id="domainCheckResult" role="status" aria-live="polite" class="text-sm text-gray-400 mt-3">See if your favorite .com, .net, or .org name is available!</p>
+                            <p id="domainCheckResult" role="status" aria-live="polite" class="text-sm text-gray-400 mt-3">Enter any domain name, such as youridea.com or www.youridea.cc.</p>
                             <div id="domainSelection" class="hidden mt-3">
                                 <button type="button" id="selectDomainButton" onclick="selectDomain()" class="bg-neonPink text-white font-semibold px-5 py-3 rounded-xl">I want this domain</button>
                             </div>
@@ -264,7 +264,7 @@
                         </div>
                         <div>
                             <label for="inspirationLink" class="block text-sm font-medium text-gray-300 mb-1">Example website or inspiration link (optional)</label>
-                            <input type="url" id="inspirationLink" name="inspirationLink" placeholder="https://example.com" class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink transition">
+                            <input type="text" id="inspirationLink" name="inspirationLink" placeholder="example.com or https://example.com" class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink transition">
                         </div>
                         <input type="hidden" name="paymentStatus" value="Inquiry only — NOT PAID; verify subscription in PayPal">
                         <button type="submit" class="w-full bg-neonPink text-white font-bold py-4 rounded-xl neon-box-glow hover:bg-pink-600 transition duration-300">
@@ -366,14 +366,21 @@
             const input = document.getElementById('desiredDomain');
             const result = document.getElementById('domainCheckResult');
             const button = document.getElementById('checkDomainButton');
-            const domain = input.value.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/$/, '');
-            const match = domain.match(/^([a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)\.(com|net|org)$/);
+            const domain = input.value.trim().toLowerCase().replace(/^https?:\/\//i, '').replace(/^www\./i, '').replace(/[\/?#].*$/, '').replace(/:\d+$/, '').replace(/\.$/, '');
+            const match = domain.match(/^([a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)\.([a-z]{2,63})$/);
             if (!match || domain.length > 253) {
-                result.textContent = 'Please enter a valid .com, .net, or .org domain, like youridea.com.';
+                result.textContent = 'Enter a domain name such as youridea.com, www.youridea.cc, or https://youridea.net.';
                 return;
             }
             resetDomainSelection();
             input.value = domain;
+            if (!['com','net','org'].includes(match[2])) {
+                checkedDomain = domain;
+                document.getElementById('domainSelection').classList.remove('hidden');
+                result.textContent = 'We can help with ' + domain + '! This extension needs a manual availability and pricing check. You can still select it as your preferred domain; no extra charge will be made without your approval.';
+                result.className = 'text-sm text-yellow-300 mt-3';
+                return;
+            }
             button.disabled = true;
             result.textContent = 'Checking ' + domain + '...';
             try {
