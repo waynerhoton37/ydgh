@@ -242,10 +242,19 @@
                             <label for="desiredDomain" class="block text-sm font-semibold text-white mb-2">Find your included domain</label>
                             <p class="text-gray-400 text-xs mb-3">Your $99/month plan includes registration and renewal of one standard domain (up to $20/year), with no separate domain bill. You own it; we handle everything.</p>
                             <div class="flex flex-col sm:flex-row gap-2">
-                                <input type="text" id="desiredDomain" name="desiredDomain" required placeholder="youridea.com" autocomplete="off" spellcheck="false" class="flex-1 min-w-0 bg-darkCard border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink">
+                                <input type="text" id="desiredDomain" name="domainSearch" required oninput="resetDomainSelection()" placeholder="youridea.com" autocomplete="off" spellcheck="false" class="flex-1 min-w-0 bg-darkCard border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink">
                                 <button type="button" id="checkDomainButton" onclick="checkDomainAvailability()" class="bg-darkCard border border-neonPink text-white font-semibold px-5 py-3 rounded-xl hover:bg-neonPink transition">Check availability</button>
                             </div>
                             <p id="domainCheckResult" role="status" aria-live="polite" class="text-sm text-gray-400 mt-3">See if your favorite .com, .net, or .org name is available!</p>
+                            <div id="domainSelection" class="hidden mt-3">
+                                <button type="button" id="selectDomainButton" onclick="selectDomain()" class="bg-neonPink text-white font-semibold px-5 py-3 rounded-xl">I want this domain</button>
+                            </div>
+                            <div id="domainConfirmation" class="hidden mt-3 border border-neonPink rounded-xl p-4">
+                                <p class="text-white font-semibold">Please confirm the spelling:</p>
+                                <p id="domainToConfirm" class="text-neonPink text-xl font-bold break-all my-2"></p>
+                                <label class="flex gap-2 items-start text-sm text-gray-300"><input id="domainSpellingConfirmed" type="checkbox" onchange="confirmDomainSelection()" class="mt-1"> Yes, this is the exact domain I want YDGH to attempt to register after my order. Registration is not guaranteed until completed. Standard domains are included; premium domains require a separate quote and my approval.</label>
+                            </div>
+                            <input type="hidden" id="confirmedDomain" name="confirmedDomain" value="">
                             <p class="text-xs text-gray-500 mt-2">Your plan includes one standard domain at no extra cost. Some names are already owned or offered for resale, and aren't included. We'll help you find a great available option.</p>
                         </div>
 
@@ -257,7 +266,7 @@
                             <label for="inspirationLink" class="block text-sm font-medium text-gray-300 mb-1">Example website or inspiration link (optional)</label>
                             <input type="url" id="inspirationLink" name="inspirationLink" placeholder="https://example.com" class="w-full bg-darkBg border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink transition">
                         </div>
-                        <input type="hidden" name="paymentStatus" value="Awaiting PayPal subscription">
+                        <input type="hidden" name="paymentStatus" value="Inquiry only — NOT PAID; verify subscription in PayPal">
                         <button type="submit" class="w-full bg-neonPink text-white font-bold py-4 rounded-xl neon-box-glow hover:bg-pink-600 transition duration-300">
                             Continue to Secure Payment
                         </button>
@@ -272,11 +281,11 @@
                 </div>
 
                 <div class="mt-8 text-center text-xs text-gray-400 max-w-xl mx-auto">
-                    Completely month-to-month. No contracts — we keep you through excellent service. Cancel any time with 30 days notice and you keep your domain, content, and files.
+                    Completely month-to-month. No contracts — we keep you through excellent service. Cancel any time; you keep your domain, content, and files. Domain handoff is available on request.
                 </div>
 
                 <div class="mt-12 text-center">
-                    <p class="text-gray-400 text-sm">Rather just talk it through?</p>
+                    <p class="text-gray-400 text-sm">Questions? Send us your details above and we’ll follow up by email.</p>
                     
                 </div>
             </div>
@@ -334,6 +343,25 @@
 
     <script src="https://www.paypal.com/sdk/js?client-id=BAA4XsuJE2DPoXs6_bYpecqMQumX-kqFOYycS5OS8VtZ62W0G3NZXFW5pUd3z6Ep4zmjwOUdY_FqpLT7lU&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
     <script>
+        let checkedDomain = '';
+        function resetDomainSelection() {
+            checkedDomain = '';
+            document.getElementById('confirmedDomain').value = '';
+            document.getElementById('domainSelection').classList.add('hidden');
+            document.getElementById('domainConfirmation').classList.add('hidden');
+            document.getElementById('domainSpellingConfirmed').checked = false;
+            document.getElementById('domainCheckResult').textContent = 'Check availability, then select your preferred domain.';
+        }
+        function selectDomain() {
+            if (!checkedDomain) return;
+            document.getElementById('domainToConfirm').textContent = checkedDomain;
+            document.getElementById('domainConfirmation').classList.remove('hidden');
+            document.getElementById('domainSpellingConfirmed').checked = false;
+            document.getElementById('confirmedDomain').value = '';
+        }
+        function confirmDomainSelection() {
+            document.getElementById('confirmedDomain').value = document.getElementById('domainSpellingConfirmed').checked ? checkedDomain : '';
+        }
         async function checkDomainAvailability() {
             const input = document.getElementById('desiredDomain');
             const result = document.getElementById('domainCheckResult');
@@ -344,6 +372,7 @@
                 result.textContent = 'Please enter a valid .com, .net, or .org domain, like youridea.com.';
                 return;
             }
+            resetDomainSelection();
             input.value = domain;
             button.disabled = true;
             result.textContent = 'Checking ' + domain + '...';
@@ -359,6 +388,10 @@
                     ? domain + ' looks available! One standard domain is included in your plan. We’ll confirm it qualifies before registering it for you.'
                     : domain + ' isn’t available for standard registration. It may already be owned or listed for resale. Try another name!';
                 result.className = 'text-sm mt-3 ' + (record.available ? 'text-green-400' : 'text-yellow-300');
+                if (record.available) {
+                    checkedDomain = domain;
+                    document.getElementById('domainSelection').classList.remove('hidden');
+                }
             } catch (error) {
                 result.textContent = 'We couldn’t check that name right now. You can still request it, and we’ll help you find an included domain.';
                 result.className = 'text-sm text-yellow-300 mt-3';
@@ -375,6 +408,12 @@
             const form = event.target;
             const msg = document.getElementById('successMessage');
             const button = form.querySelector('button[type="submit"]');
+            if (!document.getElementById('confirmedDomain').value) {
+                msg.classList.remove('hidden');
+                msg.textContent = 'Please check a domain, choose “I want this domain,” and confirm its spelling before continuing.';
+                document.getElementById('desiredDomain').focus();
+                return;
+            }
             button.disabled = true;
             msg.classList.remove('hidden');
             msg.textContent = 'Sending your website instructions...';
@@ -387,7 +426,7 @@
                 });
                 if (!response.ok) throw new Error('Could not save project details');
                 websiteOrderDetails = Object.fromEntries(details.entries());
-                msg.textContent = 'Instructions received! Complete your $99/month subscription below.';
+                msg.textContent = 'Your request was saved as an unpaid inquiry. Complete your PayPal subscription below to proceed.';
                 form.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
                 document.getElementById('paypalCheckout').classList.remove('hidden');
                 document.getElementById('paypalCheckout').scrollIntoView({behavior:'smooth',block:'start'});
@@ -402,7 +441,7 @@
                             const status = document.getElementById('paypalStatus');
                             status.textContent = 'PayPal subscription created. Sending your confirmation...';
                             const confirmation = new FormData();
-                            confirmation.set('paymentStatus', 'PayPal subscription approved by customer — verify in PayPal');
+                            confirmation.set('paymentStatus', 'UNVERIFIED PayPal approval — check active subscription and first payment in PayPal');
                             confirmation.set('paypalSubscriptionID', data.subscriptionID);
                             for (const [key,value] of Object.entries(websiteOrderDetails || {})) {
                                 confirmation.set(key, value);
@@ -411,7 +450,7 @@
                             try {
                                 const res = await fetch(form.action, {method:'POST', body:confirmation, headers:{'Accept':'application/json'}});
                                 if (!res.ok) throw new Error('Notification failed');
-                                status.textContent = 'Thank you! Your subscription was created and your website request is in. We’ll review your details and contact you soon.';
+                                status.textContent = 'Thank you! PayPal returned your subscription reference. We’ll verify its active payment status before accepting your order or beginning work. We’ll contact you by email.';
                             } catch(err) {
                                 status.textContent = 'Your PayPal subscription was created, but our confirmation email may not have arrived. Please contact us with your subscription ID: ' + data.subscriptionID;
                             }
