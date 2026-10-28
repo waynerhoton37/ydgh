@@ -249,14 +249,14 @@
                         </div>
 
                         <div class="rounded-xl border border-darkBorder bg-darkBg p-5">
-                            <label for="desiredDomain" class="block text-sm font-semibold text-white mb-2">Choose your domain (included)</label>
-                            <p class="text-gray-400 text-xs mb-3">One standard domain up to $20/year is included. You own it; we register and manage it for you.</p>
+                            <label for="desiredDomain" class="block text-sm font-semibold text-white mb-2">Find your included domain</label>
+                            <p class="text-gray-400 text-xs mb-3">Your $99/month plan includes registration and renewal of one standard domain (up to $20/year), with no separate domain bill. You own it; we handle everything.</p>
                             <div class="flex flex-col sm:flex-row gap-2">
                                 <input type="text" id="desiredDomain" name="desiredDomain" required placeholder="youridea.com" autocomplete="off" spellcheck="false" class="flex-1 min-w-0 bg-darkCard border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink">
                                 <button type="button" id="checkDomainButton" onclick="checkDomainAvailability()" class="bg-darkCard border border-neonPink text-white font-semibold px-5 py-3 rounded-xl hover:bg-neonPink transition">Check availability</button>
                             </div>
-                            <p id="domainCheckResult" role="status" aria-live="polite" class="text-sm text-gray-400 mt-3">Enter a .com, .net, or .org domain and check availability.</p>
-                            <p class="text-xs text-gray-500 mt-2">Results are estimates, not reservations. We'll verify availability and cost with the registrar before purchase.</p>
+                            <p id="domainCheckResult" role="status" aria-live="polite" class="text-sm text-gray-400 mt-3">Check whether your preferred .com, .net, or .org domain appears available. Pricing classification is coming soon.</p>
+                            <p class="text-xs text-gray-500 mt-2">Availability searches do not reserve a name. Standard domains are included; premium or higher-priced domains are optional and quoted separately, never purchased without your approval.</p>
                         </div>
 
                         <div>
@@ -372,11 +372,11 @@
                     ? json.data.results.find(item => item.tld === match[2]) : null;
                 if (!record || typeof record.available !== 'boolean') throw new Error('No confirmed result');
                 result.textContent = record.available
-                    ? domain + ' appears available! We will confirm it with the registrar before registering.'
+                    ? domain + ' appears available! Your plan includes a standard domain at no extra charge. Premium or higher-priced domains are quoted separately; this checker cannot determine the price yet.'
                     : domain + ' appears taken. Try another name.';
                 result.className = 'text-sm mt-3 ' + (record.available ? 'text-green-400' : 'text-yellow-300');
             } catch (error) {
-                result.textContent = 'We could not check availability right now. You can still request this domain; we will verify it for you.';
+                result.textContent = 'Availability is temporarily unavailable. You can still request this domain. Standard domains are included in your plan; we will confirm eligibility before registration.';
                 result.className = 'text-sm text-yellow-300 mt-3';
             } finally {
                 button.disabled = false;
