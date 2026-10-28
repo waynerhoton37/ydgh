@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /sandbox-checkout.html
+Disallow: /thank-you.html
+Sitemap: https://yourdomaingoeshere.com/sitemap.xml
