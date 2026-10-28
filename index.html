@@ -255,8 +255,8 @@
                                 <input type="text" id="desiredDomain" name="desiredDomain" required placeholder="youridea.com" autocomplete="off" spellcheck="false" class="flex-1 min-w-0 bg-darkCard border border-darkBorder rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neonPink">
                                 <button type="button" id="checkDomainButton" onclick="checkDomainAvailability()" class="bg-darkCard border border-neonPink text-white font-semibold px-5 py-3 rounded-xl hover:bg-neonPink transition">Check availability</button>
                             </div>
-                            <p id="domainCheckResult" role="status" aria-live="polite" class="text-sm text-gray-400 mt-3">Check whether your preferred .com, .net, or .org domain appears available. Pricing classification is coming soon.</p>
-                            <p class="text-xs text-gray-500 mt-2">Availability searches do not reserve a name. Standard domains are included; premium or higher-priced domains are optional and quoted separately, never purchased without your approval.</p>
+                            <p id="domainCheckResult" role="status" aria-live="polite" class="text-sm text-gray-400 mt-3">See if your favorite .com, .net, or .org name is available!</p>
+                            <p class="text-xs text-gray-500 mt-2">Your plan includes one standard domain at no extra cost. Some names are already owned or offered for resale, and aren't included. We'll help you find a great available option.</p>
                         </div>
 
                         <div>
@@ -372,11 +372,11 @@
                     ? json.data.results.find(item => item.tld === match[2]) : null;
                 if (!record || typeof record.available !== 'boolean') throw new Error('No confirmed result');
                 result.textContent = record.available
-                    ? domain + ' appears available! Your plan includes a standard domain at no extra charge. Premium or higher-priced domains are quoted separately; this checker cannot determine the price yet.'
-                    : domain + ' appears taken. Try another name.';
+                    ? domain + ' looks available! One standard domain is included in your plan. We’ll confirm it qualifies before registering it for you.'
+                    : domain + ' isn’t available for standard registration. It may already be owned or listed for resale. Try another name!;
                 result.className = 'text-sm mt-3 ' + (record.available ? 'text-green-400' : 'text-yellow-300');
             } catch (error) {
-                result.textContent = 'Availability is temporarily unavailable. You can still request this domain. Standard domains are included in your plan; we will confirm eligibility before registration.';
+                result.textContent = 'We couldn’t check that name right now. You can still request it, and we’ll help you find an included domain.';
                 result.className = 'text-sm text-yellow-300 mt-3';
             } finally {
                 button.disabled = false;
