@@ -434,7 +434,7 @@
                 style: {shape:'rect',color:'silver',layout:'vertical',label:'subscribe'},
                 createSubscription: (data,actions) => actions.subscription.create({plan_id:'P-2E156526RH524161NNLQ2W6A'}),
                 onApprove: (data) => {
-                    document.getElementById('paypalStatus').textContent = 'SANDBOX: PayPal returned subscription ID ' + data.subscriptionID + '. This proves sandbox checkout returned approval, NOT that a real payment was captured or notifications were delivered.';
+                    window.location.assign('/thank-you.html?sandbox=1');
                 },
                 onCancel: () => {document.getElementById('paypalStatus').textContent='SANDBOX: Checkout canceled. No order created.';},
                 onError: () => {document.getElementById('paypalStatus').textContent='SANDBOX: Checkout error. No order created.';}
