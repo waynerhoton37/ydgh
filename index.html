@@ -453,13 +453,13 @@
                             for (const [key,value] of Object.entries(websiteOrderDetails || {})) {
                                 confirmation.set(key, value);
                             }
-                            confirmation.set('paymentStatus', 'PayPal subscription approved by customer — verify in PayPal');
+                            confirmation.set('paymentStatus', 'UNVERIFIED PayPal approval — verify subscription and first payment in PayPal');
                             try {
                                 const res = await fetch(form.action, {method:'POST', body:confirmation, headers:{'Accept':'application/json'}});
                                 if (!res.ok) throw new Error('Notification failed');
-                                status.textContent = 'Thank you! PayPal returned your subscription reference. We’ll verify its active payment status before accepting your order or beginning work. We’ll contact you by email.';
+                                window.location.assign('/thank-you.html');
                             } catch(err) {
-                                status.textContent = 'Your PayPal subscription was created, but our confirmation email may not have arrived. Please contact us with your subscription ID: ' + data.subscriptionID;
+                                status.textContent = 'Your subscription was created, but we could not deliver the order notification. Please save this subscription ID and contact us: ' + data.subscriptionID;
                             }
                         },
                         onError: function() {
